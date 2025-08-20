@@ -70,8 +70,15 @@ const Editor = ({ onSubmit }) => {
             </section>
             <section className="content-section">
                 <h4>오늘의 일기</h4>
-                <textarea placeholder='오늘은 어땠나요?'></textarea>
+                <textarea
+                    name="content"
+                    value={input.content}
+                    onChange={onChangeInput}
+                    placeholder='오늘은 어땠나요?'>
+
+                </textarea>
             </section>
+
             <section className="button-section">
                 <Button text={"취소하기"} onClick={() => nav(-1)} />
                 <Button text={"작성완료"}
