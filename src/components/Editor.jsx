@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./Editor.css"
 import Button from './Button'
 import EmotionItem from './EmotionItem'
@@ -12,8 +12,27 @@ const emotionList = [
 ];
 
 const Editor = () => {
-    const emotionId = 3
+    const [input, setInput] = useState({
+        createdDate: new Date(),
+        emootionId: 3,
+        content: ""
+    })
+    // const emotionId = 1
+    const onChangeInput = (e) => {
+        let name = e.target.name;
+        letvalue = e.target.value
+        if (name === 'createdDate') {
+            value = new Date(value)
+        }
+        setInput({
+            ...input,
+            [name]: value
+        })
+    }
 
+    const onSubmitButtonClick = () => {
+
+    }
 
     return (
         <div className='Editor'>
@@ -26,12 +45,14 @@ const Editor = () => {
                     <EmotionItem
                         key={item.emotionId}
                         {...item}
-                        isSelected={item.emotionId === emotionId}
+                        isSelected={item.emotionId == emotionId}
                     />
+
                 ))}
 
 
             </section>
+
             <section className="content-section">
                 <h4>오늘의 일기</h4>
                 <textarea placeholder='오늘은 어땠나요?'></textarea>
@@ -40,7 +61,7 @@ const Editor = () => {
                 <Button text={"취소하기"} />
                 <Button text={"작성완료"} type={'POSITIVE'} />
             </section>
-        </div>
+        </div >
     )
 }
 

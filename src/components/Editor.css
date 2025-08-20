@@ -25,3 +25,11 @@
     display: flex;
     justify-content: space-between;
 }
+
+.emotion-section {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+
+
+}
